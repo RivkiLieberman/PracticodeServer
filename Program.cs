@@ -16,11 +16,11 @@ app.UseCors(builder => builder
      .AllowAnyMethod()
      .AllowAnyHeader());   
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.MapGet("/items", async (ToDoDbContext db) =>
     await db.Items.ToListAsync());
@@ -62,5 +62,7 @@ app.MapDelete("/items/{id}", async (int Id, ToDoDbContext Db) =>
     }
     return Results.NotFound();
 });
+
+app.MapGet("/",()=>"api is running");
 
 app.Run();
