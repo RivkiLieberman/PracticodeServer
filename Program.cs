@@ -10,6 +10,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("OpenPolicy",
+                      policy =>
+                      {
+                          policy.WithOrigins("https://todolistclient-lurn.onrender.com")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials(); // Added AllowCredentials
+                      });
+});
+
 var app = builder.Build();
 app.UseCors(builder => builder
      .AllowAnyOrigin()
