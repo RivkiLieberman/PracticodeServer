@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
+//ah
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("OpenPolicy",
